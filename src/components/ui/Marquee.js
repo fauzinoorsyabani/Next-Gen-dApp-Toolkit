@@ -1,3 +1,4 @@
+// src/components/ui/Marquee.js
 import React, { useRef, useEffect, useCallback } from "react";
 
 const cn = (...x) => x.filter(Boolean).join(" ");
@@ -17,7 +18,29 @@ export default function Marquee({
   const pausedRef   = useRef(false);
   const rafRef      = useRef(null);
 
-  // animasi
+  // get gap value: prefer CSS var --gap on container, else fallback to computed columnGap or 24px
+  const readGap = () => {
+    try {
+      if (viewportRef.current) {
+        const s = window.getComputedStyle(viewportRef.current);
+        const cssVar = s.getPropertyValue("--gap");
+        if (cssVar) {
+          const parsed = parseFloat(cssVar);
+          if (!isNaN(parsed)) return parsed;
+        }
+      }
+      // fallback: try computed style of inner set (columnGap)
+      if (set1Ref.current) {
+        const s2 = window.getComputedStyle(set1Ref.current);
+        const col = s2.columnGap || s2.getPropertyValue("column-gap") || s2.getPropertyValue("gap");
+        const parsed2 = parseFloat(col);
+        if (!isNaN(parsed2)) return parsed2;
+      }
+    } catch (e) {}
+    return 24; // default px fallback (approx gap-6 = 1.5rem => 24px)
+  };
+
+  // animation
   const tick = useCallback((tPrev) => {
     let prev = tPrev;
     const loop = (tNow) => {
@@ -45,6 +68,13 @@ export default function Marquee({
     return () => rafRef.current && cancelAnimationFrame(rafRef.current);
   }, [tick]);
 
+  // pause handlers
+  const onEnter = () => { if (pauseOnHover) pausedRef.current = true; };
+  const onLeave = () => { if (pauseOnHover) pausedRef.current = false; };
+
+  // compute spacer width (readGap) and apply as inline style to spacer element
+  const spacerWidth = readGap();
+
   return (
     <div
       {...props}
@@ -53,22 +83,30 @@ export default function Marquee({
         "relative overflow-hidden",
         className
       )}
-      onMouseEnter={() => (pauseOnHover ? (pausedRef.current = true) : null)}
-      onMouseLeave={() => (pauseOnHover ? (pausedRef.current = false) : null)}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
     >
-      {/* track berisi 2 set identik */}
+      {/* track berisi SET1 - SPACER - SET2 */}
       <div
         ref={trackRef}
-        className="flex w-max will-change-transform"
+        className="flex w-max will-change-transform items-center"
         style={{ transform: "translateX(0px)" }}
       >
-        <div ref={set1Ref} className="flex items-center gap-6">
-          {/* SET 1 */}
-          {children}
+        {/* SET 1 */}
+        <div ref={set1Ref} className="flex items-center" style={{ gap: "var(--gap, 1.5rem)", display: "flex", flexWrap: "nowrap" }}>
+          {React.Children.toArray(children).map((child, i) => (
+            <div key={i} style={{ flex: "0 0 auto" }}>{child}</div>
+          ))}
         </div>
-        <div className="flex items-center gap-6" aria-hidden="true">
-          {/* SET 2 (duplikat) */}
-          {children}
+
+        {/* SPACER kecil supaya akhir SET1 dan awal SET2 tidak menempel */}
+        <div aria-hidden="true" style={{ width: `${spacerWidth}px`, flex: "0 0 auto" }} />
+
+        {/* SET 2 (duplikat) */}
+        <div className="flex items-center" aria-hidden="true" style={{ gap: "var(--gap, 1.5rem)", display: "flex", flexWrap: "nowrap" }}>
+          {React.Children.toArray(children).map((child, i) => (
+            <div key={`dup-${i}`} style={{ flex: "0 0 auto" }}>{child}</div>
+          ))}
         </div>
       </div>
     </div>
