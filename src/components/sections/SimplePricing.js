@@ -141,8 +141,8 @@ export default function SimplePricing() {
       </div>
 
       <div className="mx-auto max-w-6xl text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1 text-sm font-medium text-white mb-4">
-          <Sparkles className="h-4 w-4 text-white-50" />
+        <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1 text-sm font-medium text-primary mb-4">
+          <Sparkles className="h-4 w-4 text-primary" />
           AI Subscription Plans
         </span>
 
@@ -155,12 +155,12 @@ export default function SimplePricing() {
 
         {/* toggle */}
         <div className="mt-6 flex justify-center">
-          <div className="inline-flex rounded-full bg-indigo-600 p-1 shadow-cyan-400">
+          <div className="inline-flex rounded-full bg-muted/20 p-1">
             <button
               onClick={() => setFrequency("monthly")}
               className={cn(
                 "px-4 py-1.5 rounded-full text-sm font-medium transition",
-                frequency === "monthly" ? "bg-white shadow" : "hover:bg-muted/40 border-x-rose-800"
+                frequency === "monthly" ? "bg-background shadow" : "hover:bg-muted/40"
               )}
             >
               Monthly
@@ -168,11 +168,11 @@ export default function SimplePricing() {
             <button
               onClick={() => setFrequency("yearly")}
               className={cn(
-                "px-4 py-1.5 rounded-full text-sm font-medium transition shadow-black",
-                frequency === "yearly" ? "bg-white shadow" : "hover:bg-muted/40"
+                "px-4 py-1.5 rounded-full text-sm font-medium transition",
+                frequency === "yearly" ? "bg-background shadow" : "hover:bg-muted/40"
               )}
             >
-              Yearly <span className="ml-2 inline-block rounded-full bg-white px-2 text-base font-semibold text-black">20% off</span>
+              Yearly <span className="ml-2 inline-block rounded-full bg-primary/10 px-2 text-xs font-semibold text-primary">20% off</span>
             </button>
           </div>
         </div>
@@ -201,7 +201,7 @@ export default function SimplePricing() {
                   {/* popular badge */}
                   {plan.popular && (
                     <div className="absolute -top-3 left-1/2 z-10 flex -translate-x-1/2">
-                      <span className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2 text-2xl font-semibold text-sky-700 shadow">
+                      <span className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-1 text-sm font-semibold text-indigo-300 shadow">
                         <Sparkles className="h-4 w-4 text-indigo-300" /> Most Popular
                       </span>
                     </div>

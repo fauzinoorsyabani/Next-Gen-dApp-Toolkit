@@ -9,6 +9,7 @@ import "./App.css";
 import BackgroundPattern from "./components/layout/BackgrounPatter"
 import Marquee from "./components/ui/Marquee";
 import Partners from "./components/sections/Partners";
+import SimplePricing from "./components/sections/SimplePricing";
 
 
 export default function App(){
