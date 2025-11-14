@@ -2,3 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 html {scroll-behavior: smooth;}
+/* animation helpers - add to global CSS */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient { animation: none !important; }
+  .float { animation: none !important; }
+}
+
+/* gradient text animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient {
+  background: linear-gradient(90deg,var(--tw-gradient-from, #06b6d4), var(--tw-gradient-to, #8b5cf6));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* small float keyframes */
+@keyframes floatA {
+  0%,100% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-8px) translateX(6px) scale(1.02); }
+}
+@keyframes floatB {
+  0%,100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-12px) translateX(-4px); }
+}
+@keyframes floatC {
+  0%,100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-6px) translateX(10px); }
+}
+/* utility classes for particles to use */
+[class*="float-"] { animation-duration: 8s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+.float-0 { animation-name: floatA; }
+.float-1 { animation-name: floatB; }
+.float-2 { animation-name: floatC; }
+
+/* example to lower particles on mobile */
+@media (max-width: 640px) {
+  .particles-hidden-on-mobile { display: none; }
+}

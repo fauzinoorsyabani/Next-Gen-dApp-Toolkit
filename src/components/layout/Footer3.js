@@ -1,144 +1,139 @@
+// src/components/layout/Footer2.js
 "use client";
 
 import React from "react";
 
-const Footer3 = () => {
-  const footerLinks = {
-    pagedone: [
-      { name: "Home", href: "#" },
-      { name: "About", href: "#" },
-      { name: "Pricing", href: "#" },
-      { name: "Features", href: "#" },
-    ],
-    products: [
-      { name: "Figma UI System", href: "#" },
-      { name: "Icons Assets", href: "#" },
-      { name: "Responsive Blocks", href: "#" },
-      { name: "Components Library", href: "#" },
-    ],
-    resources: [
-      { name: "FAQs", href: "#" },
-      { name: "Quick Start", href: "#" },
-      { name: "Documentation", href: "#" },
-      { name: "User Guide", href: "#" },
-    ],
-    blogs: [
-      { name: "News", href: "#" },
-      { name: "Tips & Tricks", href: "#" },
-      { name: "New Updates", href: "#" },
-      { name: "Events", href: "#" },
-    ],
-  };
+function Footer2() {
+  const navLinks = [
+    { name: "Features", href: "#" },
+    { name: "Solution", href: "#" },
+    { name: "Customers", href: "#" },
+    { name: "Pricing", href: "#" },
+    { name: "Help", href: "#" },
+    { name: "About", href: "#" },
+  ];
 
-  const socialLinks = [
+  const socialIcons = [
     {
-      label: "Twitter",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-white" aria-hidden>
-          <path d="M16.5 5.5c-.4.2-.8.4-1.3.5.5-.3.8-.8 1-.1-.5.3-1 .6-1.6.8-.5.3-1.1.5-1.7.5-1.3 0-2.4-1-2.4-2.4 0-.2 0-.5.1-.7C9.1 6 7.2 7 6 8.6c-.2.4-.3.9-.3 1.5C5.6 11 7 12 8.7 12.1 8.2 12.4 7.6 12.6 7 12.6c-.3 0-.5 0-.8-.1.5 1.6 2 2.8 3.8 2.8-1.4 1.1-3.1 1.8-4.9 1.8-.3 0-.6 0-.9-.1 1.8 1.1 3.9 1.8 6.2 1.8 7.4 0 11.5-6.1 11.5-11.5v-.5c.8-.6 1.5-1.3 2-2.2-.8.4-1.8.7-2.7.7.9-.6 1.6-1.5 2-2.6z" fill="currentColor"/>
+      name: "X",
+      href: "#",
+      svg: (
+        <svg className="w-6 h-6 transition-transform duration-200 hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden>
+          <path fill="currentColor" d="M10.488 14.651L15.25 21h7l-7.858-10.478L20.93 3h-2.65l-5.117 5.886L8.75 3h-7l7.51 10.015L2.32 21h2.65zM16.25 19L5.75 5h2l10.5 14z" />
         </svg>
       ),
-      href: "#",
     },
     {
-      label: "Instagram",
-      icon: (
-        <svg className="w-5 h-5 text-white" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-          <path d="M4.71 7.94a2.23 2.23 0 112.35 2.35 2.24 2.24 0 01-2.35-2.35z" fill="currentColor"/>
-          <path d="M1.28 7.94C1.28 5.97 3.06 4.37 5.06 4.37s3.78 1.6 3.78 3.57-1.78 3.56-3.78 3.56S1.28 9.92 1.28 7.94z" fill="currentColor" opacity="0.6"/>
+      name: "LinkedIn",
+      href: "#",
+      svg: (
+        <svg className="w-6 h-6 transition-transform duration-200 hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden>
+          <path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z" />
         </svg>
       ),
-      href: "#",
     },
     {
-      label: "LinkedIn",
-      icon: (
-        <svg className="w-4 h-4 text-white" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-          <path d="M2.88 11.55V3.87H0.32v7.68h2.56zM4.30 11.55H6.86V7.26c0-.23.02-.45.09-.61.19-.49.60-.97 1.31-.97.93 0 1.3.71 1.3 1.75v4.09H12.11V7.15c0-2.36-1.26-3.45-2.95-3.45-1.38 0-1.98.77-2.34 1.29V3.87H4.30v7.68z" fill="currentColor"/>
+      name: "Facebook",
+      href: "#",
+      svg: (
+        <svg className="w-6 h-6 transition-transform duration-200 hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden>
+          <path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95" />
         </svg>
       ),
-      href: "#",
     },
     {
-      label: "YouTube",
-      icon: (
-        <svg className="w-5 h-3 text-white" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-          <path d="M13.93 1.13c.63.17 1.13.66 1.3 1.3.31 1.15.31 3.54.31 3.54s0 2.4-.31 3.55c-.17.63-.66 1.13-1.3 1.3-1.15.31-5.75.31-5.75.31S3.59 11.15 2.45 10.84c-.63-.17-1.13-.66-1.3-1.3C.84 8.39.84 5.99.84 5.99s0-2.4.31-3.55C1.32.81 1.82.32 2.45.14 3.59-.15 8.19-.15 9.34.15c.63.17 1.13.66 1.3 1.3zM10.54 5.99L6.72 8.2V3.78l3.82 2.21z" fill="currentColor"/>
+      name: "Threads",
+      href: "#",
+      svg: (
+        <svg className="w-6 h-6 transition-transform duration-200 hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden>
+          <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19.25 8.505c-1.577-5.867-7-5.5-7-5.5s-7.5-.5-7.5 8.995s7.5 8.996 7.5 8.996s4.458.296 6.5-3.918c.667-1.858.5-5.573-6-5.573c0 0-3 0-3 2.5c0 .976 1 2 2.5 2s3.171-1.027 3.5-3c1-6-4.5-6.5-6-4" />
         </svg>
       ),
+    },
+    {
+      name: "Instagram",
       href: "#",
+      svg: (
+        <svg className="w-6 h-6 transition-transform duration-200 hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden>
+          <path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
+        </svg>
+      ),
+    },
+    {
+      name: "TikTok",
+      href: "#",
+      svg: (
+        <svg className="w-6 h-6 transition-transform duration-200 hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden>
+          <path fill="currentColor" d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48" />
+        </svg>
+      ),
     },
   ];
 
   return (
-    <footer className="w-full bg-white dark:bg-black text-gray-700 dark:text-gray-300">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8 py-12">
-          <div className="col-span-full lg:col-span-2">
-            <a href="#" className="inline-flex items-center gap-3">
-              {/* Logo */}
-              <svg width="140" height="36" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                <defs>
-                  <linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
-                    <stop stopColor="#8B5CF6" />
-                    <stop offset="1" stopColor="#EC4899" />
-                  </linearGradient>
-                </defs>
-                <g>
-                  <path d="M20 0C8.95 0 0 8.95 0 20s8.95 20 20 20 20-8.95 20-20S31.05 0 20 0zm0 35c-8.28 0-15-6.72-15-15S11.72 5 20 5v30z" fill="url(#logoGradient)"/>
-                </g>
-                <text x="50" y="26" fontFamily="Inter, ui-sans-serif, system-ui" fontSize="20" fontWeight="700" fill="currentColor" className="dark:fill-white">DemoLogo</text>
-              </svg>
+    <footer className="py-10 px-4 sm:px-6 lg:px-8 font-inter relative overflow-hidden bg-transparent">
+      <div className="max-w-7xl mx-auto flex flex-col items-center relative z-10">
+        <div className="mb-6 flex items-center justify-center">
+          {/* Logo */}
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 200 200" width="48" height="48" className="mr-3 drop-shadow-lg" aria-hidden>
+            <g clipPath="url(#cs_clip_1_flower-3)">
+              <mask id="cs_mask_1_flower-3" maskType="alpha" width="200" height="200" x="0" y="0" maskUnits="userSpaceOnUse">
+                <path fill="#fff" d="M200 50c0-27.614-22.386-50-50-50s-50 22.386-50 50c0-27.614-22.386-50-50-50S0 22.386 0 50s22.386 50 50 50c-27.614 0-50 22.386-50 50s22.386 50 50 50 50-22.386 50-50c0 27.614 22.386 50 50 50s50-22.386 50-50c0-27.608-22.375-49.989-49.98-50C177.625 99.99 200 77.608 200 50z" />
+              </mask>
+              <g mask="url(#cs_mask_1_flower-3)">
+                <path fill="url(#paint0_linear_748_4691)" d="M200 0H0v200h200V0z" />
+              </g>
+            </g>
+            <defs>
+              <linearGradient id="paint0_linear_748_4691" x1="200" x2="0" y1="0" y2="200" gradientUnits="userSpaceOnUse">
+                <stop stopColor="purple" />
+                <stop offset="1" stopColor="blue" />
+              </linearGradient>
+              <clipPath id="cs_clip_1_flower-3">
+                <path fill="#fff" d="M0 0H200V200H0z" />
+              </clipPath>
+            </defs>
+          </svg>
+
+          <span className="text-gray-900 dark:text-white text-3xl font-extrabold tracking-wide"></span>
+        </div>
+
+        <nav className="mb-6 w-full">
+          <ul className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-base font-medium">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <a
+                  href={link.href}
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300 relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-gray-900 dark:after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="my-6 flex flex-wrap justify-center gap-4 text-sm">
+          {socialIcons.map((icon) => (
+            <a
+              key={icon.name}
+              href={icon.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={icon.name}
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
+            >
+              {icon.svg}
             </a>
-
-            <p className="mt-6 max-w-xs text-sm text-gray-600 dark:text-gray-400">
-              Trusted in more than 100 countries & 5 million customers. Have any query?
-            </p>
-
-            <a href="#" className="inline-block mt-5 rounded-full bg-indigo-600 text-white py-2 px-4 text-sm shadow hover:bg-indigo-700 transition">
-              Contact us
-            </a>
-          </div>
-
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title} className="text-left">
-              <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4 capitalize">{title}</h4>
-              <ul className="text-sm space-y-3">
-                {links.map((link, idx) => (
-                  <li key={idx}>
-                    <a href={link.href} className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition">
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
           ))}
         </div>
 
-        <div className="py-6 border-t border-gray-200 dark:border-gray-800">
-          <div className="flex items-center justify-between flex-col lg:flex-row gap-4">
-            <span className="text-sm text-gray-600 dark:text-gray-400">
-              © <a href="#" className="hover:text-indigo-600 dark:hover:text-indigo-400">pagedone</a> 2024, All rights reserved.
-            </span>
-
-            <div className="flex items-center gap-3">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  aria-label={link.label}
-                  className="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-indigo-600 transition"
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+        <p className="text-center text-xs text-gray-500 dark:text-gray-500 mt-4">
+          &copy; {new Date().getFullYear()} NEXT-GENT. All rights reserved.
+        </p>
       </div>
     </footer>
   );
-};
+}
 
-export default Footer3;
+export default Footer2;

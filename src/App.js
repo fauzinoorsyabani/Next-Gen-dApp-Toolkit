@@ -10,7 +10,11 @@ import BackgroundPattern from "./components/layout/BackgrounPatter"
 import Marquee from "./components/ui/Marquee";
 import Partners from "./components/sections/Partners";
 import SimplePricing from "./components/sections/SimplePricing";
-
+import Footer3 from "./components/layout/Footer3";
+import FloatingParticle from "./components/nextbunny/cta/FloatingParticle";
+import StatCard from "./components/nextbunny/StatCard";
+import Waitlist from "./components/nextbunny/waitlist";
+import CTAWithVortex from "./components/sections/CTAWithVortex";
 
 export default function App(){
 return (
@@ -21,8 +25,8 @@ return (
     <Features />
     <HowItWorks/>
     <Pricing/>
-    <CTA />
-    <footer className="border-t border-white/10 py-8 text-center text-sm text-slate-400">© {new Date().getFullYear()} Web3Landing. All rights reserved.</footer>
+    <CTAWithVortex/>
+    <Footer3 />
 </BackgroundPattern>
 );
 }
